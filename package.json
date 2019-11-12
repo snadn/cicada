@@ -3,13 +3,15 @@
   "description": "application created by thinkjs",
   "version": "1.1.1",
   "scripts": {
-    "start": "node www/development.js",
+    "start": "node www/production.js",
+    "dev": "node www/development.js",
     "compile": "babel --presets es2015,stage-1 --plugins transform-runtime src/ --out-dir app/",
     "watch-compile": "npm run compile -- --watch",
     "watch": "npm run watch-compile"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "config": "^3.2.4",
     "iconv-lite": "^0.4.13",
     "markdown": "^0.5.0",
     "moment": "^2.10.6",
