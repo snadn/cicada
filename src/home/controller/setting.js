@@ -17,12 +17,16 @@ export default class extends Base {
     this.assign('kindle', this.config('kindle'));
     this.assign('version', version);
 
-    let service = this.service('spider');
-    let spiderInstance = new service('https://cdn.rawgit.com/thinkjs-team/cicada/master/package.json');
-    let last = await spiderInstance.getContent();
-    last = JSON.parse(last);
-    if(this.compareVersion(version, last.version)) {
-      this.assign('lastVersion', last.version);
+    try {
+      let service = this.service('spider');
+      let spiderInstance = new service('https://cdn.rawgit.com/thinkjs-team/cicada/master/package.json');
+      let last = await spiderInstance.getContent();
+      last = JSON.parse(last);
+      if(this.compareVersion(version, last.version)) {
+        this.assign('lastVersion', last.version);
+      }
+    } catch (err) {
+      console.log(err);
     }
     return this.display();
   }

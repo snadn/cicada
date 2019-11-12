@@ -1,4 +1,5 @@
-FROM node:lts-alpine
+# 升级到 12 后报错：ReferenceError: primordials is not defined
+FROM node:10-alpine
 
 ENV TZ=CST-8
 EXPOSE 80
