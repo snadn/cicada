@@ -8,4 +8,4 @@ WORKDIR /app
 CMD ["sh", "/app/start.sh"]
 
 ADD ./ /app
-RUN npm install && npm run compile
+RUN mv nginx.conf /etc/nginx/ && npm install && npm run compile
